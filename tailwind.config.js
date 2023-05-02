@@ -8,15 +8,15 @@ export default {
     themes: [{
       mytheme: {
 
-        "primary": "#9C0F48",
+        "primary": "#FEFF86",
 
-        "secondary": "#470D21",
+        "secondary": "#19A7CE",
 
-        "accent": "#D67D3E",
+        "accent": "#9C0F48",
 
-        "neutral": "#1D1627",
+        "neutral": "#146C94",
 
-        "base-100": "#F9E4D4",
+        "base-100": "#B0DAFF",
 
         "info": "#7DB1ED",
 

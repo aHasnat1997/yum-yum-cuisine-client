@@ -5,3 +5,10 @@
 .max-w{
   @apply max-w-screen-xl mx-auto px-4
 }
+
+.hero-img{
+  background:  linear-gradient(to top, #000000c0, #000000b1),url(./assets/bg-home.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
