@@ -2,12 +2,14 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import GridCard from '../components/GridCard';
+import ChefCart from '../components/ChefCart';
 
 const HomePageLayout = () => {
   return (
     <div>
       <Hero />
       <GridCard />
+      <ChefCart />
     </div>
   );
 };
