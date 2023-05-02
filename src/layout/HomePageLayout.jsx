@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import GridCard from '../components/GridCard';
 import ChefCart from '../components/ChefCart';
 import Banner from '../components/Banner';
+import Food from '../components/Food';
 
 const HomePageLayout = () => {
   return (
@@ -12,6 +13,7 @@ const HomePageLayout = () => {
       <GridCard />
       <ChefCart />
       <Banner />
+      <Food />
     </div>
   );
 };

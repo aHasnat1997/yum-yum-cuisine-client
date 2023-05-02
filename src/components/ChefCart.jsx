@@ -27,13 +27,13 @@ const ChefCart = () => {
         centeredSlides={true}
         loop={true}
         breakpoints={{
-          640:{
+          640: {
             slidesPerView: 1,
           },
-          768:{
+          768: {
             slidesPerView: 2,
           },
-          1024:{
+          1024: {
             slidesPerView: 3,
           }
         }}
@@ -50,12 +50,12 @@ const ChefCart = () => {
         className="mySwiper"
       >
         {
-          chefs.map((chef, index) => <div key={index}>
-            <SwiperSlide>
-              <div className="card glass shadow-xl pt-8">
+          chefs.map((chef) =>
+            <SwiperSlide key={chef.chef_id}>
+              <div className="card glass bg-teal-500 shadow-xl pt-8 hover:bg-teal-400">
                 <img className='w-1/2 rounded-full mx-auto' src={chef.chef_img} alt="" />
                 <div className="card-body">
-                  <h2 className="card-title text-4xl mx-auto">{chef.chef_name}</h2>
+                  <h2 className="card-title text-4xl font-bold mx-auto">{chef.chef_name}</h2>
                   <p className='text-justify'>{chef.chef_description}</p>
                   <div className="card-actions mx-auto mt-4">
                     <button className="btn btn-primary">More About Chef</button>
@@ -63,7 +63,7 @@ const ChefCart = () => {
                 </div>
               </div>
             </SwiperSlide>
-          </div>)
+          )
         }
       </Swiper>
     </div>

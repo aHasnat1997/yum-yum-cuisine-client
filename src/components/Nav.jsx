@@ -19,7 +19,7 @@ const Nav = () => {
           <img className='w-40' src={logo} alt="logo" />
         </div>
         <div>
-          <button className="btn btn-primary">Sing In</button>
+          <button className="btn btn-primary font-extrabold btn-lg text-2xl">Sing In</button>
           {/* <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
