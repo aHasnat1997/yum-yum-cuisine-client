@@ -9,8 +9,8 @@ const Login = () => {
     <div>
       <div className='h-screen flex flex-col justify-center items-center'>
         <form className='w-1/2 flex flex-col gap-4'>
-          <input type="email" placeholder="Email" className="input input-bordered input-secondary w-full" />
-          <input type="password" placeholder="Password" className="input input-bordered input-secondary w-full" />
+          <input type="email" placeholder="Email" className="input input-bordered input-secondary w-full" required />
+          <input type="password" placeholder="Password" className="input input-bordered input-secondary w-full" required />
           <div className='flex gap-4'>
             <input type="submit" value="Submit" className='btn btn-secondary' />
             <input type="reset" value="Reset" className='btn btn-outline btn-accent' />
