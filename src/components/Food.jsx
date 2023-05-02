@@ -9,7 +9,7 @@ const Food = () => {
       .then(data => setFoods(data));
   }, []);
 
-  console.log(foods);
+  // console.log(foods);
 
   return (
     <div className='max-w my-16'>

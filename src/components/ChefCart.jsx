@@ -6,6 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { Link } from 'react-router-dom';
 
 
 const ChefCart = () => {
@@ -16,7 +17,7 @@ const ChefCart = () => {
       .then(data => setChefs(data))
   }, [])
 
-  console.log(chefs);
+  // console.log(chefs);
 
   return (
     <div className='max-w my-16'>
@@ -58,7 +59,7 @@ const ChefCart = () => {
                   <h2 className="card-title text-4xl font-bold mx-auto">{chef.chef_name}</h2>
                   <p className='text-justify'>{chef.chef_description}</p>
                   <div className="card-actions mx-auto mt-4">
-                    <button className="btn btn-primary">More About Chef</button>
+                    <Link to={`/chef/${chef.chef_id}`} className="btn btn-primary">More About Chef</Link>
                   </div>
                 </div>
               </div>
