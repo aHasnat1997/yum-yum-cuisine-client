@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 import { HiBars3CenterLeft, HiXMark } from "react-icons/hi2";
 import { NavLink } from 'react-router-dom';
 
@@ -39,7 +39,7 @@ const Nav = () => {
           </div> */}
         </div>
       </div>
-      <div className={`w-[80%] md:w-[40%] lg:w-[25%] h-screen transition-all duration-500 glass fixed top-0 z-50 ${open ? "left-[-50rem]" : 'left-0'}`}>
+      <div className={`w-[50%] md:w-[40%] lg:w-[25%] h-screen transition-all duration-500 glass fixed top-0 z-50 ${open ? "left-[-100rem]" : 'left-0'}`}>
         <div className="flex justify-end">
           <button onClick={() => setOpen(!open)} className='text-4xl text-white'><HiXMark /></button>
         </div>

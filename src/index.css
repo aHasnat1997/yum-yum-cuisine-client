@@ -12,3 +12,56 @@
   height: 100vh;
   background-size: cover;
 }
+.footer{
+  width: 100%;
+  background:  linear-gradient(to top, #000000ef, #000000e8),url(./assets/footer.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.footer-logo{
+  position: relative;
+  text-align: center;
+}
+.footer-logo::before{
+  content: "";
+  width: 200%;
+  height: .1rem;
+  background: wheat;
+  position: absolute;
+  top: 50%;
+  left: -200%;
+}
+.footer-logo::after{
+  content: "";
+  width: 200%;
+  height: .1rem;
+  background: wheat;
+  position: absolute;
+  top: 50%;
+  right: -200%;
+}
+@media only screen and (max-width: 425px){
+  .footer-logo{
+    position: relative;
+    text-align: center;
+    left: 0%;
+  }
+	.footer-logo::before{
+    content: "";
+    width: 50%;
+    height: .1rem;
+    background: wheat;
+    position: absolute;
+    top: 50%;
+    left: -50%;
+  }
+  .footer-logo::after{
+    content: "";
+    width: 50%;
+    height: .1rem;
+    background: wheat;
+    position: absolute;
+    top: 50%;
+    right: -500%;
+  }
+}
