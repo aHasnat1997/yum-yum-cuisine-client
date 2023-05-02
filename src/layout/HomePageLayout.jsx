@@ -5,6 +5,7 @@ import GridCard from '../components/GridCard';
 import ChefCart from '../components/ChefCart';
 import Banner from '../components/Banner';
 import Food from '../components/Food';
+import Discount from '../components/Discount';
 
 const HomePageLayout = () => {
   return (
@@ -14,6 +15,7 @@ const HomePageLayout = () => {
       <ChefCart />
       <Banner />
       <Food />
+      <Discount />
     </div>
   );
 };
