@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import { HiBars3CenterLeft, HiXMark } from "react-icons/hi2";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Nav = () => {
   const [open, setOpen] = useState(true);
@@ -19,7 +19,7 @@ const Nav = () => {
           <img className='w-40' src={logo} alt="logo" />
         </div>
         <div>
-          <button className="btn btn-primary font-extrabold btn-lg text-2xl">Sing In</button>
+          <Link to='/login' className="btn btn-primary font-extrabold btn-lg text-2xl">Sing In</Link>
           {/* <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -47,7 +47,7 @@ const Nav = () => {
           <img className='w-1/2 mx-auto' src={logo} alt="logo" />
         </div>
         <ul className='text-white font-bold text-4xl ml-8 flex flex-col gap-4'>
-          <li><NavLink>Home</NavLink></li>
+          <li><NavLink to='/'>Home</NavLink></li>
           <li><NavLink>Blog</NavLink></li>
           <li><NavLink>About Us</NavLink></li>
           <li><NavLink>Contact Us</NavLink></li>
