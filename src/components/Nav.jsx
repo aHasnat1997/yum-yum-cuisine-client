@@ -1,11 +1,21 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../assets/logo.png';
 import { HiBars3CenterLeft, HiXMark } from "react-icons/hi2";
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
 
 const Nav = () => {
+  const { user, singOutUser } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
+
+  const logOut = () => {
+    singOutUser()
+      .then()
+      .catch(error => console.log(error))
+  }
+
+  // console.log(user.displayName);
 
   return (
     <>
@@ -16,27 +26,36 @@ const Nav = () => {
           </button>
         </div>
         <div>
-        <Link to='/'><img className='w-40' src={logo} alt="logo" /></Link>
+          <Link to='/'><img className='w-40' src={logo} alt="logo" /></Link>
         </div>
         <div>
-          <Link to='/login' className="btn btn-primary font-extrabold btn-lg text-2xl">Sing In</Link>
-          {/* <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          {
+            user ?
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-20 rounded-full">
+                    <div className="tooltip tooltip-primary tooltip-bottom tooltip-open" data-tip="hello">
+                      <img src={
+                        user?.photoURL ? `${user?.photoURL}` : `https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg`
+                      } />
+                    </div>
+                  </div>
+                </label>
+                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                  <li><a>{user?.displayName}</a></li>
+                  <li>
+                    <a className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li><a>Settings</a></li>
+                  <button onClick={logOut} className='btn btn-outline'>Log Out</button>
+                </ul>
               </div>
-            </label>
-            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </div> */}
+              :
+              <Link to='/login' className="btn btn-primary font-extrabold text-2xl">Sing In</Link>
+          }
         </div>
       </div>
       <div className={`w-[80%] md:w-[40%] lg:w-[25%] h-screen transition-all duration-500 glass fixed top-0 z-50 ${open ? "left-[-100rem]" : 'left-0'}`}>

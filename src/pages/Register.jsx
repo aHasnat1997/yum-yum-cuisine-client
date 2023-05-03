@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -12,8 +13,8 @@ const Register = () => {
   const formSubmit = e => {
     e.preventDefault();
     const form = e.target.parentNode.parentNode;
-    // const name = form.childNodes[0].value;
-    // const photo = form.childNodes[1].value;
+    const name = form.childNodes[0].value;
+    const photo = form.childNodes[1].value;
     const email = form.childNodes[2].value;
     const password = form.childNodes[3].value;
 
@@ -21,13 +22,23 @@ const Register = () => {
       .then(result => {
         const createdUser = result.user;
         console.log(createdUser);
+        updateData(createdUser, name, photo)
         navigate('/login');
         form.reset();
       })
       .catch(error => console.log(error));
 
+    const updateData = (user, name, photo) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo
+      })
+        .then(() => console.log('name add'))
+        .catch(error => console.log(error.message))
+    }
 
-    // console.log(name, photo, email, password);
+
+    console.log(name, photo, email, password);
   }
 
   return (
