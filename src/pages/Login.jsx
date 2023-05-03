@@ -1,10 +1,39 @@
 /* eslint-disable react/no-unescaped-entities */
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
+  const { singInUser } = useContext(AuthContext);
+  // const [passwordShow, setPasswordShow] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  const from = location.state?.from?.pathname || '/';
+
+  const formSubmit = e => {
+    e.preventDefault();
+    const form = e.target.parentNode.parentNode;
+    const email = form.childNodes[0].value;
+    const password = form.childNodes[1].value;
+
+    singInUser(email, password)
+      .then(result => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        navigate(from, { replace: true });
+        form.reset();
+      })
+      .catch(error => console.log(error));
+
+
+    // console.log(email, password);
+  }
+
+
+
   return (
     <div>
       <div className='h-screen flex flex-col justify-center items-center'>
@@ -12,7 +41,7 @@ const Login = () => {
           <input type="email" placeholder="Email" className="input input-bordered input-secondary w-full" required />
           <input type="password" placeholder="Password" className="input input-bordered input-secondary w-full" required />
           <div className='flex gap-4'>
-            <input type="submit" value="Submit" className='btn btn-secondary' />
+            <input onClick={formSubmit} type="submit" value="Submit" className='btn btn-secondary' />
             <input type="reset" value="Reset" className='btn btn-outline btn-accent' />
           </div>
           <div>

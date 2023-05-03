@@ -9,7 +9,7 @@ const RecipePage = () => {
 
   return (
     <div className='max-w mt-32 mb-16 flex gap-8'>
-      <div>
+      <div className='w-1/2'>
         <h1 className='text-6xl font-bold'>{recipe_name}</h1>
         <p className='text-xl my-4'>Rating: {rating}</p>
         <h2 className='text-4xl mt-8'>Ingredients</h2>
@@ -25,7 +25,7 @@ const RecipePage = () => {
           }
         </ul>
       </div>
-      <div className='overflow-hidden rounded-3xl'>
+      <div className='w-1/2 overflow-hidden rounded-3xl'>
         <img className='h-full duration-500 hover:scale-125' src={image} alt="food image" />
       </div>
     </div>

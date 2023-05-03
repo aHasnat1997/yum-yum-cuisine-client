@@ -7,6 +7,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 import { Link } from 'react-router-dom';
+import { GiRiceCooker } from "react-icons/gi";
+import { AiOutlineLike } from "react-icons/ai";
 
 
 const ChefCart = () => {
@@ -57,9 +59,17 @@ const ChefCart = () => {
                 <img className='w-1/2 rounded-full mx-auto' src={chef.chef_img} alt="" />
                 <div className="card-body">
                   <h2 className="card-title text-4xl font-bold mx-auto">{chef.chef_name}</h2>
-                  <p className='text-justify'>{chef.chef_description}</p>
+                  <div className="w-full my-4 flex justify-evenly items-center text-2xl">
+                    <p>Experience: {chef.experience}</p>
+                    <p className='flex items-center gap-1'>
+                      <GiRiceCooker className='text-2xl' />{chef.recipes.length}
+                    </p>
+                    <p className='flex items-center gap-1'>
+                      <AiOutlineLike className='text-2xl' />{chef.likes}
+                    </p>
+                  </div>
                   <div className="card-actions mx-auto mt-4">
-                    <Link to={`/chef/${chef.chef_id}`} className="btn btn-primary">More About Chef</Link>
+                    <Link to={`/chef/${chef.chef_id}`} className="btn btn-primary">View Recipes</Link>
                   </div>
                 </div>
               </div>

@@ -26,7 +26,7 @@ const Food = () => {
                 <h2 className="card-title">{food.recipe_name}</h2>
                 <ul>
                   {
-                    food.ingredients.slice(0, 5).map((ingredient, i) => <li key={i}>{ingredient}</li>)
+                    food.ingredients.map((ingredient, i) => <li key={i}>{ingredient}</li>)
                   }
                 </ul>
                 <div className="card-actions justify-end mt-auto">

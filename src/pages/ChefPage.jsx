@@ -21,15 +21,20 @@ const ChefPage = () => {
           <p className='text-2xl my-16'><span className='font-bold'>About Chef:</span> {chef_description}</p>
         </div>
       </div>
-      <div className='my-16 grid grid-cols-3 gap-4'>
+      <div className='my-16 grid grid-cols-2 gap-4'>
         {
           recipes.map(recipe => <div key={recipe.recipe_id} className=''>
             <div className="card h-full lg:card-side bg-base-100 shadow-xl overflow-hidden">
               <div className="w-1/2 overflow-hidden">
                 <img className='w-full h-full duration-500 hover:scale-125' src={recipe.image} alt="Shoes" />
               </div>
-              <div className="card-body">
+              <div className="card-body w-1/2">
                 <h2 className="card-title">{recipe.recipe_name}</h2>
+                <ul>
+                  {
+                    recipe.ingredients.map((ingredient, i) => <li key={i}>{ingredient}</li>)
+                  }
+                </ul>
                 <div className="card-actions justify-end mt-auto">
                   <Link to={`/recipe/${recipe.recipe_id}`} className="btn btn-primary">Learn More</Link>
                 </div>

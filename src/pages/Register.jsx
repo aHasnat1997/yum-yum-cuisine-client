@@ -1,8 +1,35 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  // const [passwordShow, setPasswordShow] = useState(false);
+  const navigate = useNavigate();
+
+
+  const formSubmit = e => {
+    e.preventDefault();
+    const form = e.target.parentNode.parentNode;
+    // const name = form.childNodes[0].value;
+    // const photo = form.childNodes[1].value;
+    const email = form.childNodes[2].value;
+    const password = form.childNodes[3].value;
+
+    createUser(email, password)
+      .then(result => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        navigate('/login');
+        form.reset();
+      })
+      .catch(error => console.log(error));
+
+
+    // console.log(name, photo, email, password);
+  }
+
   return (
     <div>
       <div className='h-screen flex flex-col justify-center items-center'>
@@ -12,7 +39,7 @@ const Register = () => {
           <input type="email" placeholder="Email" className="input input-bordered input-secondary w-full" required />
           <input type="password" placeholder="Password" className="input input-bordered input-secondary w-full" required />
           <div className='flex gap-4'>
-            <input type="submit" value="Submit" className='btn btn-secondary' />
+            <input onClick={formSubmit} type="submit" value="Submit" className='btn btn-secondary' />
             <input type="reset" value="Reset" className='btn btn-outline btn-accent' />
           </div>
         </form>
