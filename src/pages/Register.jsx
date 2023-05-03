@@ -45,8 +45,8 @@ const Register = () => {
     <div>
       <div className='h-screen flex flex-col justify-center items-center'>
         <form className='w-1/2 flex flex-col gap-4'>
-          <input type="text" placeholder="Name" className="input input-bordered input-secondary w-full" required />
-          <input type="text" placeholder="Photo URL" className="input input-bordered input-secondary w-full" required />
+          <input type="text" placeholder="User Name" className="input input-bordered input-secondary w-full" required />
+          <input type="text" placeholder="Photo URL" className="input input-bordered input-secondary w-full" />
           <input type="email" placeholder="Email" className="input input-bordered input-secondary w-full" required />
           <input type="password" placeholder="Password" className="input input-bordered input-secondary w-full" required />
           <div className='flex gap-4'>

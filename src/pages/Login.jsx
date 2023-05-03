@@ -4,9 +4,10 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../context/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-  const { singInUser } = useContext(AuthContext);
+  const { singInUser, googlePopup } = useContext(AuthContext);
   // const [passwordShow, setPasswordShow] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,6 +33,18 @@ const Login = () => {
     // console.log(email, password);
   }
 
+  const google = () => {
+    googlePopup()
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        navigate('/');
+        console.log(user, token);
+      })
+      .catch((error) => console.log(error.code, error.message));
+  }
+
 
 
   return (
@@ -50,7 +63,7 @@ const Login = () => {
         </form>
         <hr className='w-1/2 border-1 border-secondary my-4' />
         <div className='flex gap-4'>
-          <button className='btn btn-outline btn-secondary btn-wide btn-lg text-base'>
+          <button onClick={google} className='btn btn-outline btn-secondary btn-wide btn-lg text-base'>
             <FaGoogle className='mr-2' />Sign-in with Google
           </button>
           <button className='btn btn-outline btn-accent btn-wide btn-lg text-base'>
