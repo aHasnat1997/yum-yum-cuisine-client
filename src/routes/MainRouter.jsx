@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ChefPage from "../pages/ChefPage";
 import RecipePage from "../pages/RecipePage";
+import ProtectedRoute from "./ProtectedRoute";
 
 
 export const router = createBrowserRouter([
@@ -18,12 +19,12 @@ export const router = createBrowserRouter([
       },
       {
         path: '/chef/:id',
-        element: <ChefPage />,
+        element: <ProtectedRoute><ChefPage /></ProtectedRoute>,
         loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-beta.vercel.app/chef/${params.id}`)
       },
       {
         path: '/recipe/:id',
-        element: <RecipePage />,
+        element: <ProtectedRoute><RecipePage /></ProtectedRoute>,
         loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-beta.vercel.app/recipe/${params.id}`)
       },
       {

@@ -4,6 +4,8 @@ import logo from '../assets/logo.png';
 import { HiBars3CenterLeft, HiXMark } from "react-icons/hi2";
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
+import 'react-tooltip/dist/react-tooltip.css';
+import { Tooltip } from "react-tooltip";
 
 const Nav = () => {
   const { user, singOutUser } = useContext(AuthContext);
@@ -33,13 +35,14 @@ const Nav = () => {
             user ?
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-20 rounded-full">
-                    <div className="tooltip tooltip-primary tooltip-bottom tooltip-open" data-tip="hello">
-                      <img src={
-                        user?.photoURL ? `${user?.photoURL}` : `https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg`
-                      } />
-                    </div>
+                  <div className="rounded-full" data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-variant="light">
+                    <img src={
+                      user?.photoURL ? `${user?.photoURL}` : `https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg`
+                    } />
                   </div>
+                  <Tooltip id="my-tooltip"
+                    style={{ height: "2rem", width: "10rem", fontSize: "1rem" }}
+                  />
                 </label>
                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                   <li><a>{user?.displayName}</a></li>
