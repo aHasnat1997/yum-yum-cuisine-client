@@ -8,7 +8,7 @@ import chicken from '../assets/fries-chicken.jpg';
 
 const GridCard = () => {
   return (
-    <div className='max-w grid grid-cols-3 gap-8 my-8'>
+    <div className='max-w grid lg:grid-cols-3 gap-8 my-8'>
       <div className='row-span-2 rounded-2xl overflow-hidden duration-500 relative'>
         <img className='h-full duration-500 hover:scale-125 brightness-50' src={sandwich} alt="" />
         <div className="absolute top-2 left-4">
