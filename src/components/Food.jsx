@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
@@ -18,16 +19,18 @@ const Food = () => {
         {
           foods.slice(0, 6).map(food => <div key={food.recipe_id}>
             <div className="card h-full lg:card-side bg-base-100 shadow-xl overflow-hidden">
-              <img className='w-1/2' src={food.image} alt="Album" />
+              <div className="w-1/2 overflow-hidden">
+                <img className='w-full h-full duration-500 hover:scale-125' src={food.image} alt="Shoes" />
+              </div>
               <div className="card-body">
-                <h2 className="card-titlen text-3xl font-bold">{food.recipe_name}</h2>
+                <h2 className="card-title">{food.recipe_name}</h2>
                 <ul>
                   {
                     food.ingredients.slice(0, 5).map((ingredient, i) => <li key={i}>{ingredient}</li>)
                   }
                 </ul>
                 <div className="card-actions justify-end mt-auto">
-                  <button className="btn btn-primary">Learn More</button>
+                  <Link className="btn btn-primary">Learn More</Link>
                 </div>
               </div>
             </div>

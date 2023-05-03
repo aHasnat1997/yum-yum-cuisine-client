@@ -16,7 +16,7 @@ const Nav = () => {
           </button>
         </div>
         <div>
-          <img className='w-40' src={logo} alt="logo" />
+        <Link to='/'><img className='w-40' src={logo} alt="logo" /></Link>
         </div>
         <div>
           <Link to='/login' className="btn btn-primary font-extrabold btn-lg text-2xl">Sing In</Link>
