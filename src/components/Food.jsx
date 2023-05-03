@@ -30,7 +30,7 @@ const Food = () => {
                   }
                 </ul>
                 <div className="card-actions justify-end mt-auto">
-                  <Link className="btn btn-primary">Learn More</Link>
+                  <Link to={`/recipe/${food.recipe_id}`} className="btn btn-primary">Learn More</Link>
                 </div>
               </div>
             </div>

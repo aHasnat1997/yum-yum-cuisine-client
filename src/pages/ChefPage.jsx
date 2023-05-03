@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AiFillLike } from "react-icons/ai";
 
 const ChefPage = () => {
   const chefData = useLoaderData([]);
   const { chef_description, chef_img, chef_name, experience, likes, recipes } = chefData;
-  console.log(chefData);
+  // console.log(chefData);
 
   return (
     <div className='max-w'>
@@ -31,7 +31,7 @@ const ChefPage = () => {
               <div className="card-body">
                 <h2 className="card-title">{recipe.recipe_name}</h2>
                 <div className="card-actions justify-end mt-auto">
-                  <button className="btn btn-primary">Learn More</button>
+                  <Link to={`/recipe/${recipe.recipe_id}`} className="btn btn-primary">Learn More</Link>
                 </div>
               </div>
             </div>
