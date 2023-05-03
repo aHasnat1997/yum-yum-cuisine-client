@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import Lottie from "lottie-react";
-import heroImg from '../assets/lottiefiles/food-around-the-city.json'
+import heroImg from '../assets/lottiefiles/chef-cooking-fish.json'
 
 const Hero = () => {
   return (
@@ -13,7 +13,7 @@ const Hero = () => {
           <p className='text-white text-xl'>American food with special sauce. Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit incidunt quae...</p>
           <button className='btn btn-primary text-xl mt-4 font-bold'>Order Now</button>
         </div>
-        <div className='w-1/2'>
+        <div className='w-1/2 h-1/2'>
           <Lottie animationData={heroImg} loop={true} />
         </div>
       </div>

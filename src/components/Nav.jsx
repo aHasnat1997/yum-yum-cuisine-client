@@ -69,12 +69,20 @@ const Nav = () => {
           <img className='w-1/2 mx-auto' src={logo} alt="logo" />
         </div>
         <ul className='text-white font-bold text-4xl ml-8 flex flex-col gap-4'>
-          <li><NavLink to='/'>Home</NavLink></li>
-          <li><NavLink>Blog</NavLink></li>
-          <li><NavLink>About Us</NavLink></li>
-          <li><NavLink>Contact Us</NavLink></li>
+          <li><NavLink to='/' className={({ isActive }) => isActive ? "text-secondary" : ""}>
+            Home
+          </NavLink></li>
+          <li><NavLink to='/blog' className={({ isActive }) => isActive ? "text-secondary" : ""} >
+            Blog
+          </NavLink></li>
+          <li><NavLink to='/about' className={({ isActive }) => isActive ? "text-secondary" : ""}>
+            About Us
+          </NavLink></li>
+          <li><NavLink to='/contact' className={({ isActive }) => isActive ? "text-secondary" : ""}>
+            Contact Us
+          </NavLink></li>
         </ul>
-      </div>
+      </div >
       <div className={`w-full h-screen bg-black opacity-70 fixed top-0 z-40 ${open ? 'hidden' : 'visible'}`}></div>
     </>
   );
