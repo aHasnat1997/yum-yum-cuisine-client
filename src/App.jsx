@@ -3,6 +3,8 @@ import './App.css'
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import StayTop from './components/StayTop';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -13,6 +15,7 @@ function App() {
       <Nav />
       <Outlet />
       <Footer />
+      <ToastContainer />
     </>
   )
 }
