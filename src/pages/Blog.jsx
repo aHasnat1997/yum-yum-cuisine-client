@@ -1,7 +1,28 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
+
 
 const Blog = () => {
+  const [loader, setLoader] = useState(false);
+
+  const downloadPDF = (e) => {
+    const capture = e.target.parentNode;
+    setLoader(true);
+    html2canvas(capture).then((canvas) => {
+      const imgData = canvas.toDataURL('img/png');
+      const doc = new jsPDF('p', 'mm', 'a4');
+      const componentWidth = doc.internal.pageSize.getWidth();
+      const componentHeight = doc.internal.pageSize.getHeight();
+      doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
+      setLoader(false);
+      doc.save('yum-yum-blog.pdf');
+    })
+  }
+
+
   return (
     <div className='max-w mt-28 mb-20'>
       <div className='mt-4'>
@@ -29,6 +50,18 @@ const Blog = () => {
         <p>You may create a custom hook when you have component logic that needs to be used by multiple components, or when you want to extract some complex or stateful logic from a component. For example, you may create a custom hook for fetching data, accessing local storage, managing authentication, or connecting to a chat room</p>
         <p>A custom hook follows the same rules as the built-in hooks, such as useState and useEffect. That means you can only call a custom hook at the top level of a function component or another custom hook, and not inside loops, conditions, or nested functions</p>
       </div>
+      <button
+        className="w-full mx-auto btn mt-8"
+        onClick={downloadPDF}
+        disabled={!(loader === false)}
+      >
+        {loader ? (
+          <span>Downloading</span>
+        ) : (
+          <span>Download</span>
+        )}
+
+      </button>
     </div>
   );
 };
