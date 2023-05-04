@@ -4,11 +4,11 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../context/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-  const { singInUser, googlePopup } = useContext(AuthContext);
+  const { singInUser, googlePopup, githubPopup } = useContext(AuthContext);
   // const [passwordShow, setPasswordShow] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -52,6 +52,19 @@ const Login = () => {
       .catch((error) => console.log(error.code, error.message));
   }
 
+  const github = () => {
+    githubPopup()
+      .then((result) => {
+        const credential = GithubAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        toast('🎉 Successfully Log In with GitHub');
+        navigate(from, { replace: true });
+        console.log(user, token);
+      })
+      .catch((error) => console.log(error.code, error.message));
+  }
+
 
 
   return (
@@ -73,7 +86,7 @@ const Login = () => {
           <button onClick={google} className='btn btn-outline btn-secondary btn-wide btn-lg text-base'>
             <FaGoogle className='mr-2' />Sign-in with Google
           </button>
-          <button className='btn btn-outline btn-accent btn-wide btn-lg text-base'>
+          <button onClick={github} className='btn btn-outline btn-accent btn-wide btn-lg text-base'>
             <FaGithub className='mr-2' />Sign-in with GitHub
           </button>
         </div>
