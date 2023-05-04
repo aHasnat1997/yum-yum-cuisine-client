@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "yum-yum-cuisine",
+    "y": "yum-yum-cuisine",
+    "yum-yum": "yum-yum-cuisine"
+  },
+  "targets": {},
+  "etags": {}
+}

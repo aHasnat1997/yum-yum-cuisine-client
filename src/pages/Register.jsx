@@ -19,7 +19,20 @@ const Register = () => {
     const email = form.childNodes[2].value;
     const password = form.childNodes[3].value;
 
-    if(password.length < 6){
+
+    if (name.length === 0 || email.length === 0 || password.length === 0) {
+      if (name.length === 0) {
+        return toast('⛔ User Name empty');
+      }
+      else if (email.length === 0) {
+        return toast('⛔ Email empty');
+      }
+      if (password.length === 0) {
+        return toast('⛔ Password empty');
+      }
+    }
+
+    if (password.length < 6) {
       return toast('⛔ password is must 6 characters or more');
     }
 

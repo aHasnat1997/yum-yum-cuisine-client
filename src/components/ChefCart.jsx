@@ -57,7 +57,7 @@ const ChefCart = () => {
           chefs.map((chef) =>
             <SwiperSlide key={chef.chef_id}>
               <div className="card glass bg-teal-500 shadow-xl pt-8 hover:bg-teal-400">
-                <LazyLoad offset={680}>
+                <LazyLoad offset={500}>
                   <img className='w-1/2 rounded-full mx-auto' src={chef.chef_img} alt="" />
                 </LazyLoad>
                 <div className="card-body">

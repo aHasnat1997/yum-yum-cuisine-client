@@ -41,7 +41,7 @@ const Nav = () => {
                     } />
                   </div>
                   <Tooltip id="my-tooltip"
-                    style={{ height: "2rem", width: "10rem", fontSize: "1rem" }}
+                    style={{ height: "2.5rem", width: "10rem", fontSize: "1rem" }}
                   />
                 </label>
                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

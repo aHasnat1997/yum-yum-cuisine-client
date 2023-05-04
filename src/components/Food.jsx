@@ -19,6 +19,10 @@ const Food = () => {
     toast("The recipe is your favorite list");
   }
 
+  const likeBTN = () => {
+    setLiked(!isLiked)
+  }
+
   // console.log(foods);
 
   return (
@@ -27,16 +31,16 @@ const Food = () => {
       <div className='grid lg:grid-cols-2 gap-8'>
         {
           foods.slice(0, 6).map(food => <div key={food.recipe_id}>
-            <LazyLoad height={500} offset={1200}>
+            <LazyLoad offset={1200}>
               <div className="card h-full lg:card-side bg-base-100 shadow-xl overflow-hidden">
                 <div className="lg:w-1/2 overflow-hidden relative">
-                  <img className='w-full h-full duration-500 hover:scale-125' src={food.image} alt="Shoes" />
-                  <button onClick={() => setLiked(!isLiked)}
-                    className={`absolute top-0 right-0 text-6xl text-accent duration-300 ${isLiked ? "opacity-70 btn-disabled" : "opacity-100"}`} role="button" aria-disabled={isLiked ? "true" : "false"}>
+                  <img className='w-full h-full duration-500 hover:scale-125' src={food.image} />
+                  <button onClick={likeBTN} disabled={isLiked}
+                    className={`absolute top-0 right-0 text-6xl text-accent duration-300 ${isLiked ? "opacity-70" : "opacity-100"}`} >
                     <FaBookmark />
                   </button>
                 </div>
-                <div className="card-body lg:w-1/2">
+                <div className="card-body h-full lg:w-1/2">
                   <h2 className="card-title">{food.recipe_name}</h2>
                   <ul>
                     {
