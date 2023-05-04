@@ -31,8 +31,7 @@ const AuthProvider = ({ children }) => {
   }
 
   const googlePopup = () => {
-    signInWithPopup(auth, googleProvider);
-    // signInWithRedirect(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider);
   }
 
 

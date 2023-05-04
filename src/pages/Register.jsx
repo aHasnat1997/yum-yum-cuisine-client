@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -23,6 +24,7 @@ const Register = () => {
         const createdUser = result.user;
         console.log(createdUser);
         updateData(createdUser, name, photo)
+        toast('🎉 Successfully Register');
         navigate('/login');
         form.reset();
       })

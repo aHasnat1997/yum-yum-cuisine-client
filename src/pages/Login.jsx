@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../context/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { singInUser, googlePopup } = useContext(AuthContext);
@@ -24,10 +25,15 @@ const Login = () => {
       .then(result => {
         const createdUser = result.user;
         console.log(createdUser);
+        toast('🎉 Successfully Log In');
         navigate(from, { replace: true });
         form.reset();
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        const message = error.message;
+        toast('⛔', message);
+        console.log(message);
+      });
 
 
     // console.log(email, password);
@@ -39,7 +45,8 @@ const Login = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        navigate('/');
+        toast('🎉 Successfully Log In with Google');
+        navigate(from, { replace: true });
         console.log(user, token);
       })
       .catch((error) => console.log(error.code, error.message));
