@@ -9,6 +9,7 @@ import { EffectCoverflow, Pagination, Navigation } from "swiper";
 import { Link } from 'react-router-dom';
 import { GiRiceCooker } from "react-icons/gi";
 import { AiOutlineLike } from "react-icons/ai";
+import LazyLoad from 'react-lazy-load';
 
 
 const ChefCart = () => {
@@ -56,7 +57,9 @@ const ChefCart = () => {
           chefs.map((chef) =>
             <SwiperSlide key={chef.chef_id}>
               <div className="card glass bg-teal-500 shadow-xl pt-8 hover:bg-teal-400">
-                <img className='w-1/2 rounded-full mx-auto' src={chef.chef_img} alt="" />
+                <LazyLoad offset={680}>
+                  <img className='w-1/2 rounded-full mx-auto' src={chef.chef_img} alt="" />
+                </LazyLoad>
                 <div className="card-body">
                   <h2 className="card-title text-4xl font-bold mx-auto">{chef.chef_name}</h2>
                   <div className="w-full my-4 flex justify-evenly items-center text-2xl">

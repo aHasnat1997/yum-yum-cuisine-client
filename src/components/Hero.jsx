@@ -5,7 +5,7 @@ import heroImg from '../assets/lottiefiles/chef-cooking-fish.json'
 
 const Hero = () => {
   return (
-    <div className='hero-img'>
+    <div className='hero-img overflow-hidden'>
       <div className='max-w h-screen flex flex-col lg:flex-row pt-28 lg:pt-0 items-center justify-between gap-4'>
         <div className='lg:w-1/2'>
           <h2 className='text-primary font-extrabold text-2xl lg:text-4xl uppercase'>American Food</h2>

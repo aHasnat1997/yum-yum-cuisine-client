@@ -35,6 +35,7 @@ const ChefPage = () => {
                     recipe.ingredients.map((ingredient, i) => <li key={i}>{ingredient}</li>)
                   }
                 </ul>
+                <p>For, more info go to <span className='font-bold'>Learn More</span></p>
                 <div className="card-actions justify-end mt-auto">
                   <Link to={`/recipe/${recipe.recipe_id}`} className="btn btn-primary">Learn More</Link>
                 </div>

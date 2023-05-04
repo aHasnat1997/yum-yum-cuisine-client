@@ -7,6 +7,7 @@ import Banner from '../components/Banner';
 import Food from '../components/Food';
 import Discount from '../components/Discount';
 
+
 const HomePageLayout = () => {
   return (
     <div>

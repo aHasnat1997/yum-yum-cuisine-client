@@ -19,6 +19,10 @@ const Register = () => {
     const email = form.childNodes[2].value;
     const password = form.childNodes[3].value;
 
+    if(password.length < 6){
+      return toast('⛔ password is must 6 characters or more');
+    }
+
     createUser(email, password)
       .then(result => {
         const createdUser = result.user;
@@ -40,7 +44,7 @@ const Register = () => {
     }
 
 
-    console.log(name, photo, email, password);
+    console.log(name, photo, email, password.length);
   }
 
   return (

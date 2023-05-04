@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
   const { singInUser, googlePopup, githubPopup } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage]=useState('');
   // const [passwordShow, setPasswordShow] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +32,8 @@ const Login = () => {
       })
       .catch(error => {
         const message = error.message;
-        toast('⛔', message);
+        setErrorMessage(message);
+        toast('⛔ User-not-found', errorMessage);
         console.log(message);
       });
 

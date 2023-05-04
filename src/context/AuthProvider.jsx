@@ -32,10 +32,12 @@ const AuthProvider = ({ children }) => {
   }
 
   const googlePopup = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   }
   
   const githubPopup = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   }
 
